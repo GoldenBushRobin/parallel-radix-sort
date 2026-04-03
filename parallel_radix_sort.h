@@ -44,7 +44,7 @@
 namespace parallel_radix_sort {
 namespace utility {
 // Return the number of threads that would be executed in parallel regions
-int GetMaxThreads() {
+inline int GetMaxThreads() {
 #ifdef _OPENMP
   return omp_get_max_threads();
 #else
@@ -53,7 +53,7 @@ int GetMaxThreads() {
 }
 
 // Set the number of threads that would be executed in parallel regions
-void SetNumThreads(int num_threads) {
+inline void SetNumThreads(int num_threads) {
 #ifdef _OPENMP
   omp_set_num_threads(num_threads);
 #else
@@ -64,7 +64,7 @@ void SetNumThreads(int num_threads) {
 }
 
 // Return the thread number, which lies in [0, the number of threads)
-int GetThreadId() {
+inline int GetThreadId() {
 #ifdef _OPENMP
   return omp_get_thread_num();
 #else
